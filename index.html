@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <span class="logo-mark">◆</span>
+        <span class="logo-text">My Dashboard</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active" data-section="overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Overview
+        </a>
+        <a href="#" class="nav-item" data-section="calendar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          Calendar
+        </a>
+        <a href="#" class="nav-item" data-section="assignments">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          Assignments
+        </a>
+        <a href="#" class="nav-item" data-section="grades">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+          Grades
+        </a>
+        <a href="#" class="nav-item" data-section="mail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Mail
+        </a>
+        <a href="#" class="nav-item" data-section="markets">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Markets
+        </a>
+        <a href="#" class="nav-item" data-section="ai">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          AI Assistant
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="#" class="nav-item" data-section="settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Settings
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- OVERVIEW SECTION -->
+    <section class="section active" id="section-overview">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow" id="today-date">Monday, April 28</p>
+          <h1 class="section-title">Good morning<span class="greeting-dot">.</span></h1>
+        </div>
+        <div class="header-actions">
+          <div class="clock" id="clock">9:41 AM</div>
+          <button class="btn-connect" id="btn-google-auth">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Connect Google
+          </button>
+        </div>
+      </div>
+
+      <div class="overview-grid">
+
+        <!-- Today's Events -->
+        <div class="card card-wide">
+          <div class="card-header">
+            <h2 class="card-title">Today</h2>
+            <span class="card-badge" id="event-count">— events</span>
+          </div>
+          <div class="timeline" id="today-events">
+            <div class="timeline-empty">
+              <p>Connect Google Calendar to see today's events.</p>
+              <button class="link-btn" id="btn-auth-inline">Connect now →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Missing Work Alert -->
+        <div class="card card-alert" id="missing-card">
+          <div class="card-header">
+            <h2 class="card-title">Missing Work</h2>
+            <span class="pill pill-red" id="missing-count">—</span>
+          </div>
+          <div id="missing-list" class="item-list">
+            <p class="empty-note">Connect Google Classroom to see missing assignments.</p>
+          </div>
+        </div>
+
+        <!-- Upcoming Assignments -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Due Soon</h2>
+            <a href="#" class="link-btn" data-section="assignments">View all →</a>
+          </div>
+          <div id="due-soon-list" class="item-list">
+            <p class="empty-note">Connect Google Classroom to see upcoming work.</p>
+          </div>
+        </div>
+
+        <!-- Grades Snapshot -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Grades</h2>
+            <a href="#" class="link-btn" data-section="grades">View all →</a>
+          </div>
+          <div id="grades-snapshot" class="grade-grid">
+            <div class="grade-card placeholder">
+              <span class="grade-subject">English</span>
+              <span class="grade-score">—</span>
+            </div>
+            <div class="grade-card placeholder">
+              <span class="grade-subject">Math</span>
+              <span class="grade-score">—</span>
+            </div>
+            <div class="grade-card placeholder">
+              <span class="grade-subject">Science</span>
+              <span class="grade-score">—</span>
+            </div>
+            <div class="grade-card placeholder">
+              <span class="grade-subject">History</span>
+              <span class="grade-score">—</span>
+            </div>
+          </div>
+          <p class="empty-note" style="margin-top:12px">Connect PowerSchool in Settings to sync grades.</p>
+        </div>
+
+        <!-- Market Ticker -->
+        <div class="card card-wide">
+          <div class="card-header">
+            <h2 class="card-title">Markets</h2>
+            <span class="card-badge" id="market-time">—</span>
+          </div>
+          <div class="market-row" id="market-row">
+            <div class="market-item loading">
+              <span class="market-label">S&amp;P 500</span>
+              <span class="market-value">—</span>
+              <span class="market-change">—</span>
+            </div>
+            <div class="market-item loading">
+              <span class="market-label">NASDAQ</span>
+              <span class="market-value">—</span>
+              <span class="market-change">—</span>
+            </div>
+            <div class="market-item loading">
+              <span class="market-label">DOW</span>
+              <span class="market-value">—</span>
+              <span class="market-change">—</span>
+            </div>
+            <div class="market-item loading">
+              <span class="market-label">Portfolio</span>
+              <span class="market-value">—</span>
+              <span class="market-change">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Digest -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Mail Digest</h2>
+            <a href="#" class="link-btn" data-section="mail">View all →</a>
+          </div>
+          <div id="mail-digest" class="item-list">
+            <p class="empty-note">Connect Gmail to see email summaries.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CALENDAR SECTION -->
+    <section class="section" id="section-calendar">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Schedule</p>
+          <h1 class="section-title">Calendar</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn-secondary" id="btn-add-event">+ Add Event</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cal-nav">
+          <button class="icon-btn" id="cal-prev">←</button>
+          <span class="cal-month-label" id="cal-month">April 2026</span>
+          <button class="icon-btn" id="cal-next">→</button>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="card-header">
+          <h2 class="card-title" id="selected-day-label">Events</h2>
+        </div>
+        <div id="selected-day-events" class="item-list">
+          <p class="empty-note">Select a day to see events, or connect Google Calendar.</p>
+        </div>
+      </div>
+
+      <!-- Add Event Modal -->
+      <div class="modal hidden" id="modal-event">
+        <div class="modal-box">
+          <h2 class="modal-title">Add Event</h2>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="evt-title" placeholder="Chemistry test…" />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="evt-date" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Start</label>
+              <input type="time" id="evt-start" />
+            </div>
+            <div class="form-group">
+              <label>End</label>
+              <input type="time" id="evt-end" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="evt-desc" placeholder="Optional notes…"></textarea>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-ghost" id="modal-cancel">Cancel</button>
+            <button class="btn-primary" id="modal-save">Add to Calendar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS SECTION -->
+    <section class="section" id="section-assignments">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Google Classroom</p>
+          <h1 class="section-title">Assignments</h1>
+        </div>
+        <div class="filter-tabs" id="assignment-filter">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+          <button class="filter-tab" data-filter="missing">Missing</button>
+          <button class="filter-tab" data-filter="done">Done</button>
+        </div>
+      </div>
+      <div id="assignments-list" class="card">
+        <p class="empty-note">Connect Google Classroom to load your assignments.</p>
+        <button class="btn-connect" style="margin-top:16px" id="btn-classroom-auth">Connect Google Classroom</button>
+      </div>
+    </section>
+
+    <!-- GRADES SECTION -->
+    <section class="section" id="section-grades">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">PowerSchool</p>
+          <h1 class="section-title">Grades</h1>
+        </div>
+        <button class="btn-secondary" id="btn-edit-grades">Edit Grades</button>
+      </div>
+      <div class="grades-full-grid" id="grades-full">
+        <!-- Populated by JS -->
+        <div class="grade-card-full placeholder">
+          <div class="gcf-left">
+            <span class="gcf-subject">English Language Arts</span>
+            <span class="gcf-teacher">Teacher —</span>
+          </div>
+          <div class="gcf-right">
+            <span class="gcf-score">—</span>
+            <span class="gcf-letter">—</span>
+          </div>
+        </div>
+        <div class="grade-card-full placeholder">
+          <div class="gcf-left">
+            <span class="gcf-subject">Mathematics</span>
+            <span class="gcf-teacher">Teacher —</span>
+          </div>
+          <div class="gcf-right">
+            <span class="gcf-score">—</span>
+            <span class="gcf-letter">—</span>
+          </div>
+        </div>
+        <div class="grade-card-full placeholder">
+          <div class="gcf-left">
+            <span class="gcf-subject">Science</span>
+            <span class="gcf-teacher">Teacher —</span>
+          </div>
+          <div class="gcf-right">
+            <span class="gcf-score">—</span>
+            <span class="gcf-letter">—</span>
+          </div>
+        </div>
+        <div class="grade-card-full placeholder">
+          <div class="gcf-left">
+            <span class="gcf-subject">World History</span>
+            <span class="gcf-teacher">Teacher —</span>
+          </div>
+          <div class="gcf-right">
+            <span class="gcf-score">—</span>
+            <span class="gcf-letter">—</span>
+          </div>
+        </div>
+        <div class="grade-card-full placeholder">
+          <div class="gcf-left">
+            <span class="gcf-subject">PE / Health</span>
+            <span class="gcf-teacher">Teacher —</span>
+          </div>
+          <div class="gcf-right">
+            <span class="gcf-score">—</span>
+            <span class="gcf-letter">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <p class="empty-note">PowerSchool doesn't have a public API. You can manually enter grades above, or paste your PowerSchool data in <a href="#" data-section="settings" class="link-btn">Settings</a>.</p>
+      </div>
+
+      <!-- Edit Grades Modal -->
+      <div class="modal hidden" id="modal-grades">
+        <div class="modal-box">
+          <h2 class="modal-title">Edit Grades</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px">Enter your grades from PowerSchool manually.</p>
+          <div id="grade-inputs"></div>
+          <div class="modal-actions">
+            <button class="btn-ghost" id="grades-cancel">Cancel</button>
+            <button class="btn-primary" id="grades-save">Save</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIL SECTION -->
+    <section class="section" id="section-mail">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Gmail</p>
+          <h1 class="section-title">Mail Digest</h1>
+        </div>
+        <button class="btn-connect" id="btn-gmail-auth">Connect Gmail</button>
+      </div>
+      <div id="mail-list" class="mail-list">
+        <div class="card">
+          <p class="empty-note">Connect Gmail to see AI-summarized email threads.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKETS SECTION -->
+    <section class="section" id="section-markets">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Finance</p>
+          <h1 class="section-title">Markets</h1>
+        </div>
+        <span class="card-badge" id="market-status">Requires API key</span>
+      </div>
+      <div class="market-cards-grid" id="market-cards">
+        <div class="card market-card-full">
+          <div class="mcf-name">S&amp;P 500</div>
+          <div class="mcf-ticker">SPY</div>
+          <div class="mcf-value">—</div>
+          <div class="mcf-change neutral">—</div>
+          <div class="mini-chart" id="chart-spy"></div>
+        </div>
+        <div class="card market-card-full">
+          <div class="mcf-name">NASDAQ</div>
+          <div class="mcf-ticker">QQQ</div>
+          <div class="mcf-value">—</div>
+          <div class="mcf-change neutral">—</div>
+          <div class="mini-chart" id="chart-qqq"></div>
+        </div>
+        <div class="card market-card-full">
+          <div class="mcf-name">Dow Jones</div>
+          <div class="mcf-ticker">DIA</div>
+          <div class="mcf-value">—</div>
+          <div class="mcf-change neutral">—</div>
+          <div class="mini-chart" id="chart-dia"></div>
+        </div>
+        <div class="card market-card-full">
+          <div class="mcf-name">My Portfolio</div>
+          <div class="mcf-ticker">—</div>
+          <div class="mcf-value" id="portfolio-total">—</div>
+          <div class="mcf-change neutral" id="portfolio-change">—</div>
+          <div class="mini-chart" id="chart-portfolio"></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <p class="empty-note">Add your Finnhub API key in <a href="#" data-section="settings" class="link-btn">Settings</a> to load live market data. Free key at <a href="https://finnhub.io" target="_blank" class="link-btn">finnhub.io</a>.</p>
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT SECTION -->
+    <section class="section" id="section-ai">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Powered by Claude</p>
+          <h1 class="section-title">AI Assistant</h1>
+        </div>
+      </div>
+      <div class="ai-layout">
+        <div class="ai-messages" id="ai-messages">
+          <div class="ai-msg ai-msg--assistant">
+            <div class="ai-avatar">◆</div>
+            <div class="ai-bubble">Hey! I'm your AI assistant. Ask me anything — homework help, essay feedback, math problems, or questions about your schedule. I'm connected to your dashboard context.</div>
+          </div>
+        </div>
+        <div class="ai-input-bar">
+          <textarea class="ai-textarea" id="ai-input" placeholder="Ask anything…" rows="1"></textarea>
+          <button class="ai-send" id="ai-send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+          </button>
+        </div>
+        <p class="empty-note" style="text-align:center;margin-top:8px">Add your OpenRouter API key in <a href="#" data-section="settings" class="link-btn">Settings</a> to enable chat. Free at <a href="https://openrouter.ai/settings/keys" target="_blank" class="link-btn">openrouter.ai</a>.</p>
+      </div>
+    </section>
+
+    <!-- SETTINGS SECTION -->
+    <section class="section" id="section-settings">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Configuration</p>
+          <h1 class="section-title">Settings</h1>
+        </div>
+      </div>
+      <div class="settings-grid">
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">Google Integration</h3>
+          <p class="settings-desc">One OAuth setup unlocks Calendar, Classroom, and Gmail.</p>
+          <div class="form-group">
+            <label>Google Client ID</label>
+            <input type="text" id="setting-google-client-id" placeholder="your-client-id.apps.googleusercontent.com" />
+          </div>
+          <button class="btn-primary" id="save-google">Save & Connect</button>
+          <div class="settings-status" id="status-google">Not connected</div>
+        </div>
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">AI Assistant</h3>
+          <p class="settings-desc">Your OpenRouter API key for the AI chat panel. Free — get one at <a href="https://openrouter.ai/settings/keys" target="_blank" class="link-btn">openrouter.ai</a>.</p>
+          <div class="form-group">
+            <label>OpenRouter API Key</label>
+            <input type="password" id="setting-openrouter-key" placeholder="sk-or-v1-…" />
+          </div>
+          <button class="btn-primary" id="save-openrouter">Save Key</button>
+          <div class="settings-status" id="status-openrouter">Not set</div>
+        </div>
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">Market Data</h3>
+          <p class="settings-desc">Free API key from <a href="https://finnhub.io" target="_blank" class="link-btn">finnhub.io</a> for live stock data.</p>
+          <div class="form-group">
+            <label>Finnhub API Key</label>
+            <input type="password" id="setting-finnhub-key" placeholder="your-finnhub-key" />
+          </div>
+          <button class="btn-primary" id="save-finnhub">Save Key</button>
+          <div class="settings-status" id="status-finnhub">Not set</div>
+        </div>
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">Portfolio Holdings</h3>
+          <p class="settings-desc">Add your stock holdings to track your portfolio value.</p>
+          <div id="portfolio-holdings"></div>
+          <button class="btn-secondary" id="add-holding">+ Add Holding</button>
+          <button class="btn-primary" style="margin-top:12px" id="save-holdings">Save Holdings</button>
+        </div>
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">Your Name</h3>
+          <p class="settings-desc">Used for the greeting on the overview page.</p>
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="setting-name" placeholder="Alex" />
+          </div>
+          <button class="btn-primary" id="save-name">Save</button>
+        </div>
+
+        <div class="card settings-card">
+          <h3 class="settings-section-title">Setup Guide</h3>
+          <p class="settings-desc">Step-by-step instructions to connect everything.</p>
+          <ol class="setup-steps">
+            <li>Go to <a href="https://console.cloud.google.com" target="_blank" class="link-btn">console.cloud.google.com</a></li>
+            <li>Create a project, enable Calendar, Classroom & Gmail APIs</li>
+            <li>Create OAuth 2.0 credentials → Web Application</li>
+            <li>Add your GitHub Pages URL as an authorized origin</li>
+            <li>Paste your Client ID above and click Save & Connect</li>
+            <li>Get a free Finnhub key at <a href="https://finnhub.io" target="_blank" class="link-btn">finnhub.io</a></li>
+            <li>Get a free OpenRouter key at <a href="https://openrouter.ai/settings/keys" target="_blank" class="link-btn">openrouter.ai/settings/keys</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
